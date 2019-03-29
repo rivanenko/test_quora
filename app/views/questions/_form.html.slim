@@ -6,13 +6,14 @@
         - @question.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     = f.label :title
     = f.text_field :title
-  .field
+  .form-group
     = f.label :description
     = f.text_area :description
-  .field
+  .form-group
     = f.label :user
     = f.text_field :user
-  .actions = f.submit
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary'

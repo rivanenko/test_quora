@@ -6,13 +6,14 @@
         - @comment.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     = f.label :body
     = f.text_area :body
-  .field
+  .form-group
     = f.label :answer
     = f.text_field :answer
-  .field
+  .form-group
     = f.label :user
     = f.text_field :user
-  .actions = f.submit
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary'
