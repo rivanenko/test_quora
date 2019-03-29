@@ -1,0 +1,16 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+  a.navbar-brand href="#"  TestQuora
+  button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.nav-right
+      - if user_signed_in?
+        li.nav-item
+          = link_to current_user.email, edit_user_registration_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'
+      - else
+        li.nav-item
+          = link_to 'Sign up', new_user_registration_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Login', new_user_session_path, class: 'nav-link'
