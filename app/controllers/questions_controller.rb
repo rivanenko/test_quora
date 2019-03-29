@@ -4,12 +4,13 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.preload(:user).page(params[:page]).per(2).order(updated_at: :desc)
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @answers = @question.answers
   end
 
   # GET /questions/new
@@ -25,6 +26,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
 
     respond_to do |format|
       if @question.save

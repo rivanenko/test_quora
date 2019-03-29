@@ -14,8 +14,8 @@ table
     - @answers.each do |answer|
       tr
         td = answer.body
-        td = answer.question
-        td = answer.user
+        td = link_to answer.question.title, answer.question
+        td = answer.user_email
         td = link_to 'Show', answer
         td = link_to 'Edit', edit_answer_path(answer)
         td = link_to 'Destroy', answer, data: { confirm: 'Are you sure?' }, method: :delete

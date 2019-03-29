@@ -10,10 +10,16 @@ html
   body
     = render '/layouts/nav'
 
-    .container
-      - if notice
-        p.alert.alert-success= notice
-      - if alert
-        p.alert.alert-danger= alert
+    - if notice
+      p.alert.alert-success= notice
+    - if alert
+      p.alert.alert-danger= alert
 
-      = yield
+    .container
+      .row
+
+        .col-md-8.blog-main
+          = yield
+
+        aside.col-md-4.blog-sidebar
+          = render '/layouts/sidebar'

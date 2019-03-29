@@ -1,25 +1,6 @@
-h1 Listing questions
+h1
+  | Listing questions #{link_to 'Ask Question', new_question_path, class: 'btn btn-primary'}
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th User
-      th
-      th
-      th
+= render @questions
 
-  tbody
-    - @questions.each do |question|
-      tr
-        td = question.title
-        td = question.description
-        td = question.user
-        td = link_to 'Show', question
-        td = link_to 'Edit', edit_question_path(question)
-        td = link_to 'Destroy', question, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Question', new_question_path
+= paginate @questions

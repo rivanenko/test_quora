@@ -1,0 +1,8 @@
+h1 New answer1
+
+= form_for([@question, Answer.new], remote:true) do |f|
+
+  .form-group
+    = f.text_area :body, class: 'form-control'
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary'

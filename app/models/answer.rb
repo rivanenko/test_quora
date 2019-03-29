@@ -5,4 +5,6 @@ class Answer < ApplicationRecord
   has_many :comments
 
   validates :body, :question_id, :user_id, presence: true
+
+  delegate :email, to: :user, prefix: true
 end

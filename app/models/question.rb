@@ -7,4 +7,6 @@ class Question < ApplicationRecord
   has_many :topics, through: :questions_topics
 
   validates :title, :user_id, presence: true
+
+  delegate :email, to: :user, prefix: true
 end

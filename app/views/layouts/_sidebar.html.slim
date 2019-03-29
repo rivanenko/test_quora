@@ -1,0 +1,7 @@
+.p-4
+  - if current_user
+    h1 My questions
+    ol
+      - @my_questions.each do |question|
+        li
+          = link_to question.title, question
